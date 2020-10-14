@@ -10,6 +10,12 @@ class Node{
   this.next=null;
  }
 }
+class BalancedTree{
+ Node root;
+ BalancedTree{
+    this.root=null;
+ }
+}
 class Main
 {
     public static void main(String[] args)
