@@ -3,11 +3,11 @@ import java.util.Scanner;
 // Do NOT change the class name
 class Node{
  int data;
- Node next;
+ Node left,right;
  Node(int data)
  {
   this.data=data;
-  this.next=null;
+  right=left=null;
  }
 }
 class BalancedTree{
