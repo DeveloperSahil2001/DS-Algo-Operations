@@ -15,6 +15,21 @@ class BalancedTree{
  BalancedTree{
     this.root=null;
  }
+ Node BinarySearch(Node root,int data)
+ {
+  if(root==null)
+   return null;
+  else if(root.data==data)
+   return root;
+  else if(root.data<data)
+  {
+   BinarySearch(root.right,data);
+  }
+  else
+  {
+   BinarySearch(root.left,data);
+  }
+ }
 }
 class Main
 {
