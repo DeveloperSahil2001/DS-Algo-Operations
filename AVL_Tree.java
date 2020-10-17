@@ -11,6 +11,37 @@ class Node{
  }
 }
 
+  Node insertNode(Node node, int item) {
+    if (node == null)
+      return (new Node(item));
+    if (item < node.item)
+      node.left = insertNode(node.left, item);
+    else if (item > node.item)
+      node.right = insertNode(node.right, item);
+    else
+      return node;
+
+    node.height = 1 + max(height(node.left), height(node.right));
+    int balanceFactor = getBalanceFactor(node);
+    if (balanceFactor > 1) {
+      if (item < node.left.item) {
+        return rightRotate(node);
+      } else if (item > node.left.item) {
+        node.left = leftRotate(node.left);
+        return rightRotate(node);
+      }
+    }
+    if (balanceFactor < -1) {
+      if (item > node.right.item) {
+        return leftRotate(node);
+      } else if (item < node.right.item) {
+        node.right = rightRotate(node.right);
+        return leftRotate(node);
+      }
+    }
+    return node;
+  }
+
 class AVL_tree{
     Node root;
     int height(Node node)
